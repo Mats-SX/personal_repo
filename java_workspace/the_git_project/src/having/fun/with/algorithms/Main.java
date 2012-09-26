@@ -1,3 +1,5 @@
+package having.fun.with.algorithms;
+
 import java.util.Scanner;
 
 public class Main {

@@ -14,9 +14,9 @@ public class View {
 	}
 	
 	public void show() {
-		for (Object n : g.getAllNodes()) {
+//		for (Object n : g.getAllNodes()) {
 			
-		}
+//		}
 		// Swing code goes here ...
 	}
 
