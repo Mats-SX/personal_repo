@@ -1,14 +1,12 @@
-package having.fun.with.algorithms;
-
 import java.util.HashSet;
 
 public class CollatzSimulator {
-	private HashSet<Integer> distinctValues;
-	private int lengthOfSequence;
-	private int maximumValue;
-	private int counter;
+	private HashSet<Long> distinctValues;
+	private long lengthOfSequence;
+	private long maximumValue;
+	private long counter;
 	
-	public static int nextInSequence(int current) {
+	public static long nextInSequence(long current) {
 		if (current == 1)
 			return current;
 		if (current % 2 == 0) {			// even
@@ -28,7 +26,7 @@ public class CollatzSimulator {
 //	}
 	
 	public CollatzSimulator() {
-		distinctValues = new HashSet<Integer>();
+		distinctValues = new HashSet<Long>();
 	}
 	
 	/**
@@ -38,8 +36,8 @@ public class CollatzSimulator {
 	 */
 	public void createSequencesUpTo(int N, int inSequence) {
 		resetFields();
-		int current = 1;							// we start with sequence 1
-		int sequence = 1;
+		long current = 1;							// we start with sequence 1
+		long sequence = 1;
 		while (true) {
 //			System.out.println("A new step in sequence " + sequence);
 //			System.out.println("Current is " + current);
@@ -65,9 +63,9 @@ public class CollatzSimulator {
 				continue;
 			}
 			current = CollatzSimulator.nextInSequence(current);		// get the next number in current sequence
-			if (current < 0) {
-				System.out.println("Roll over!");
-				return;
+			if (current < 0){
+				System.out.println("Current overflow");
+				break;
 			}
 		}
 	}
@@ -76,15 +74,15 @@ public class CollatzSimulator {
 		return distinctValues.size();
 	}
 
-	public int getLengthOfSequence() {
+	public long getLengthOfSequence() {
 		return lengthOfSequence;
 	}
 
-	public int getMaximumValue() {
+	public long getMaximumValue() {
 		return maximumValue;
 	}
 
-	public int getCounter() {
+	public long getCounter() {
 		return counter;
 	}
 

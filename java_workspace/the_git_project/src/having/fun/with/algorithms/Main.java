@@ -1,5 +1,3 @@
-package having.fun.with.algorithms;
-
 import java.util.Scanner;
 
 public class Main {
@@ -12,8 +10,8 @@ public class Main {
 			int N = scan.nextInt();
 			//		Main.test(sim, N);
 //			Main.dictionary(sim, N);
-			Main.quadratic(sim, N);
-//			Main.D(sim, N);
+//			Main.quadratic(sim, N);
+			Main.D(N);
 		}
 	}
 	
@@ -33,7 +31,7 @@ public class Main {
 	private static void quadratic(CollatzSimulator sim, int N) {
 		long start = System.currentTimeMillis();
 		sim.createSequencesUpTo(N, 0);
-		int max = sim.getMaximumValue();
+		long max = sim.getMaximumValue();
 		long stopTime = 0;
 		for (int i = 1; i <= max; i++){
 			sim.createSequencesUpTo(N, i);
@@ -46,8 +44,9 @@ public class Main {
 		System.out.println("Took the time: " + (stopTime - start));
 	}
 	
-	private static void D(CollatzSimulator sim, int N) {
-		
+	private static void D(int N) {
+		Solver s = new Solver();
+		s.solve(N);
 	}
 
 }
