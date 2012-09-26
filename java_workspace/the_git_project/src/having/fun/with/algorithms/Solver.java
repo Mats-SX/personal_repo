@@ -13,7 +13,7 @@ public class Solver {
 	/**
 	 * Algorithm D
 	 */
-	public void solve(int N) {
+	public double solve(int N) {
 		//		generateRandoms();
 		r = RAND.nextInt((int) R);
 		TreeMap<Long, Long> map = new TreeMap<Long, Long>();
@@ -36,8 +36,8 @@ public class Solver {
 				if (sequence > N) {
 //					System.out.println("The end of it all!");
 					double d = ((double) (map.size() * R)) / map.lastKey();
-					System.out.println("Estimated # distincts (|C_n|): " + d);
-					return;
+//					System.out.println("Estimated # distincts (|C_n|): " + d);
+					return d;
 				}
 				current = sequence;
 				continue;

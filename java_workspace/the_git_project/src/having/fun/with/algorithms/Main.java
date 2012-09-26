@@ -49,7 +49,15 @@ public class Main {
 	
 	private static void D(int N) {
 		Solver s = new Solver();
-		s.solve(N);
+		System.out.println("How many times shall we run the algorithm?");
+		int iterations = new Scanner(System.in).nextInt();
+		double[] estimates = new double[iterations];
+		for (int i = 0; i < iterations; i++) {
+			estimates[i] = s.solve(N);
+		}
+		System.out.println("After " + iterations + 
+				" iterations, we can conclude that the # distinct values is roughly " 
+				+ estimates[iterations/2]);
 	}
 
 }
