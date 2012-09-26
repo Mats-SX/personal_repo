@@ -44,6 +44,7 @@ public class Main {
 			}
 		}
 		System.out.println("Took the time: " + (stopTime - start));
+		System.out.println("Counter at: " + sim.getCounter());
 	}
 	
 	private static void D(CollatzSimulator sim, int N) {
