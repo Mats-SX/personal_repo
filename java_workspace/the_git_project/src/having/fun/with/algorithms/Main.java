@@ -10,15 +10,15 @@ public class Main {
 		while (true) {
 			System.out.println("Give me the sequence number!");
 			int N = scan.nextInt();
-			//		Main.test(sim, N);
-//			Main.dictionary(sim, N);
-//			Main.quadratic(sim, N);
+//			Main.test(sim, N);
+////			Main.dictionary(sim, N);
+////			Main.quadratic(sim, N);
 			Main.D(N);
 		}
 	}
 	
 	private static void test(CollatzSimulator sim, int N) {
-		sim.createSequencesUpTo(N, 0);
+		System.out.println(5 & N);
 	}
 	
 	private static void dictionary(CollatzSimulator sim, int N) {
