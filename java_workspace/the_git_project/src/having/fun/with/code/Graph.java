@@ -1,6 +1,7 @@
 package having.fun.with.code;
 
 import java.util.ArrayList;
+import java.util.Collection;
 
 /**
  * A directed multigraph implementation. Support for weighted edges to come.
@@ -77,23 +78,45 @@ public class Graph {
 			}
 		}
 	}
+//	
+//	public Collection<Export> getAllNodes() {
+//		
+//		for (Node n : nodes) {
+//			
+//		}
+//		return nodes;
+//	}
+//	
+	public Collection<Edge> getAllEdges() {
+		return edges;
+	}
+	
+	public static final class Export {
+		public final Node n;
+		public final Edge e;
+		
+		private Export(Node n, Edge e) {
+			this.n = n;
+			this.e = e;
+		}
+	}
 	
 	private static class Node {
 		private ArrayList<Edge> edgesOut;
 		private ArrayList<Edge> edgesIn;		// for directed graphs
 		private int id;
 		
-		public Node(int id) {
+		private Node(int id) {
 			edgesOut = new ArrayList<Edge>();
 			edgesIn = new ArrayList<Edge>();
 			this.id = id;
 		}
 		
-		public void addOutEdge(Edge e) {
+		private void addOutEdge(Edge e) {
 			edgesOut.add(e);
 		}
 		
-		public void addInEdge(Edge e) {
+		private void addInEdge(Edge e) {
 			edgesIn.add(e);
 		}
 
@@ -125,7 +148,7 @@ public class Graph {
 		private Node end;
 		private double weight;	
 		
-		public Edge(Node start, Node end) {
+		private Edge(Node start, Node end) {
 			this.start = start;
 			this.end = end;
 			weight = 1;
