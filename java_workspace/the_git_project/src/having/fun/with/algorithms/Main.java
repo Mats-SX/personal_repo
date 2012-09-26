@@ -1,5 +1,6 @@
 package having.fun.with.algorithms;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
@@ -55,6 +56,7 @@ public class Main {
 		for (int i = 0; i < iterations; i++) {
 			estimates[i] = s.solve(N);
 		}
+		Arrays.sort(estimates);
 		System.out.println("After " + iterations + 
 				" iterations, we can conclude that the # distinct values is roughly " 
 				+ estimates[iterations/2]);

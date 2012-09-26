@@ -91,7 +91,7 @@ estimates.
 \section{Collatz 81 Report}
 
 
-by Alice Cooper and Bob Marley\sidenote{Complete the report by filling
+by Mats Rydberg and Martin Larsson\sidenote{Complete the report by filling
   in your names and the parts marked $[\ldots]$.
   Remove the sidenotes in your final hand-in.}
 
@@ -123,7 +123,7 @@ for increasing values of $N$.\sidenote{
   1,000 & 250,504 & 2,228 & 60,542 \\
   10,000 & 27,117,424 & 21,664 & 859,666 \\
   100,000 & 1,570,824,736 & 217,212 & 10,853,840\\
-  1,000,000 & 56,991,483,520 & 2,168,611 & 132.434.424\\
+  1,000,000 & 56,991,483,520 & 2,168,611 & 132,434,424\\
   \bottomrule
 \end{tabular}
 
@@ -140,8 +140,7 @@ see if $i$ appears.
 If so, increase the counter.
 The running time will grow as the product of $\operatorname{len}C_N$ and $ \max C_n$.
 
-The largest $N$ for which this idea works within 60 seconds on our
-machine was $446$.
+The largest $N$ for which this idea works within 60 seconds on gamma-10 was $446$. On SX-box we could do $N = 702$ under 60 seconds.
 
 
 \subsection{3. Randomized Approximation in Small Space}
@@ -150,18 +149,19 @@ The following table shows the output of our implementation of
 Algorithm D, together with the error (in percent) relative to the
 correct values of $|C_N|$ computed in the first part of the report.
 
+Here we have set $t = 500$.
+
 \medskip
 \begin{tabular}{rrrr}
   \toprule
-  $N$ &   output & relative error \\
+  $N$ & output & relative error \\
   \midrule
-  10 & $[\cdots]$ &
-  \\
-  100 & \\
-  1,000 & \\
-  10,000 & \\
-  100,000 & \\
-  1,000,000 & \\
+  10 & 23 & 4,35\% \\
+  100 & 252 & 0,40\% \\
+  1,000 & 2,226 & 0,09\% \\
+  10,000 & 21,546 & 0,54\% \\
+  100,000 & 219,945 & 1,24\% \\
+  1,000,000 & 2,456,243 & 11,7\% \\
   \bottomrule
 \end{tabular}
 
