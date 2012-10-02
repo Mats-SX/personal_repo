@@ -1,4 +1,4 @@
-package having.fun.with.code;
+package graph;
 
 
 import java.io.InputStream;

@@ -1,4 +1,4 @@
-package having.fun.with.code;
+package graph;
 
 import java.util.ArrayList;
 import java.util.Collection;

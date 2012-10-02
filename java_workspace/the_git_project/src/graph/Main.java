@@ -1,4 +1,4 @@
-package p1;
+package graph;
 
 public class Main {
 

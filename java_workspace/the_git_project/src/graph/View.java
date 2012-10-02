@@ -1,4 +1,4 @@
-package having.fun.with.code;
+package graph;
 
 /**
  * This a view of a Graph object in a given state.
