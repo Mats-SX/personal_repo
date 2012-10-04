@@ -12,7 +12,6 @@ public class AnimatedSquare {
 		int dim = scan.nextInt();
 		System.out.println("skriv gradrotation");
 		int rot = scan.nextInt();
-		int randomness = 50;
 		
 		Random rand = new Random();
 		SimpleWindow w = new SimpleWindow(800, 800, "DrawManySquares");
@@ -21,14 +20,25 @@ public class AnimatedSquare {
 			sq.draw(w);
 			sq.setSide(sq.getSide() - dim);
 			sq.rotate(rot);
-			if (rand.nextInt(4) == 0) {
-				sq.move(rand.nextInt(randomness), rand.nextInt(randomness));
-			} else if (rand.nextInt(3) == 0) {
-				sq.move(-rand.nextInt(randomness), rand.nextInt(randomness));
-			} else if (rand.nextInt(2) == 0) {
-				sq.move(rand.nextInt(randomness), -rand.nextInt(randomness));
-			} else if (rand.nextInt(1) == 0) {
-				sq.move(-rand.nextInt(randomness), -rand.nextInt(randomness));
+			if (sq.getSide() != 0) {
+				int movement = rand.nextInt(sq.getSide() / 2) + 1;
+				int direction = rand.nextInt(5);
+				switch (direction) {
+				case 0:				// move down-right
+					sq.move(rand.nextInt(movement), rand.nextInt(movement));
+					break;
+				case 1:				// move down-left
+					sq.move(-rand.nextInt(movement), rand.nextInt(movement));
+					break;
+				case 2:				// move up-right
+					sq.move(rand.nextInt(movement), -rand.nextInt(movement));
+					break;
+				case 3:				// move up-left
+					sq.move(-rand.nextInt(movement), -rand.nextInt(movement));
+					break;
+				case 4:				// dont move
+					break;
+				}
 			}
 			SimpleWindow.delay(100);
 			w.clear();

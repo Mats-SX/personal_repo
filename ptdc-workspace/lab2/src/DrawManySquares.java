@@ -7,7 +7,7 @@ public class DrawManySquares {
 		System.out.println("Skriv förminskning");
 		Scanner scan = new Scanner(System.in);
 		int dim = scan.nextInt();
-		System.out.println("skriv gradrotation");
+		System.out.println("Skriv gradrotation");
 		int rot = scan.nextInt();
 
 		SimpleWindow w = new SimpleWindow(600, 600, "DrawManySquares");
