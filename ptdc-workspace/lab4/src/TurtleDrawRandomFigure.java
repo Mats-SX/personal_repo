@@ -8,7 +8,7 @@ public class TurtleDrawRandomFigure {
 		SimpleWindow w = new SimpleWindow(600, 600, "TurtleDrawRandomFigure");
 		Turtle t = new Turtle(w, 300, 300);
 		t.penDown();
-		for (int i = 0; i < 10; i++) {
+		for (int i = 0; i < 4; i++) {
 			t.forward(rand.nextInt(100));
 			SimpleWindow.delay(100);
 			t.left(90);

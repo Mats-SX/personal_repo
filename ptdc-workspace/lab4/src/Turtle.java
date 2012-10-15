@@ -3,7 +3,7 @@ import se.lth.cs.ptdc.window.SimpleWindow;
 public class Turtle {
 	protected int x;						// Turtles pos i x-led
 	protected int y;						// Turtles pos i y-led
-	protected int q;						// Om pennan är sänkt eller ej
+	protected boolean q;						// Om pennan är sänkt eller ej
 	protected double pi = Math.PI;		// pi
 	protected double dir = pi/2;			// huvudets vinkel från pos x-axeln
 	protected SimpleWindow w;				// fönstret Turtle befinner sig i
@@ -16,27 +16,28 @@ public class Turtle {
 		this.x = x;
 		this.y = y;
 		this.w = w;
-		this.q = 0;
+		this.q = false;
 		w.moveTo(x,y);
 	}
 	
 	/** Sänker pennan */
 	public void penDown() {
-		q = 1;
+		q = true;
 	}
 	
 	/** Lyfter pennan */
 	public void penUp() {
-		q = 0;
+		q = false;
 	}
 	
 	/** Går rakt framåt n pixlar i den riktning som huvudet pekar */
 	public void forward(int n) {
+		w.moveTo(x, y);
 		double xx = n * Math.cos(dir);		//längd i x-led
 		double yy = n * (-Math.sin(dir));		//längd i y-led
 		x = x + (int) Math.round(xx);		//flyttar Turtle 
 		y = y + (int) Math.round(yy);		//relativt
-		if (q == 1) {
+		if (q) {
 			w.lineTo(x, y);
 		} else {
 			w.moveTo((int) Math.round(xx), (int) Math.round(yy));

@@ -17,7 +17,7 @@ public class RitaF {
 				int x2 = w.getMouseX();
 				int y2 = w.getMouseY();
 				sq.move((x2 - x1), (y2 - y1));
-				sq.rotate(10);
+//				sq.rotate(10);
 				sq.draw(w);
 			} else {
 				char key = w.getKey();

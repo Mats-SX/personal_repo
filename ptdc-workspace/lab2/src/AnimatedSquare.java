@@ -18,10 +18,12 @@ public class AnimatedSquare {
 		Square sq = new Square(300, 300, 200);
 		while (true) {
 			sq.draw(w);
-			sq.setSide(sq.getSide() - dim);
+			sq.setSide(sq.getSide() - 5);
+			sq.draw(w);
+			sq.setSide(sq.getSide() - dim + 5);
 			sq.rotate(rot);
 			if (sq.getSide() != 0) {
-				int movement = rand.nextInt(sq.getSide() / 2) + 1;
+				int movement = rand.nextInt(sq.getSide() / 4) + 1;
 				int direction = rand.nextInt(5);
 				switch (direction) {
 				case 0:				// move down-right
@@ -44,6 +46,7 @@ public class AnimatedSquare {
 			w.clear();
 			if (sq.getSide() <= 0 || sq.getSide() > 250) {
 				dim = -dim;
+				rot = -rot;
 			}
 		}
 	}
