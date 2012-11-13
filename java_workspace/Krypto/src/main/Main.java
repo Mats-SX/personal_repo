@@ -25,7 +25,7 @@ public class Main {
 	public static final List<BigInteger> F = Arrays.asList(array);
 	
 	
-	public static final int L = F.size() + 2;
+	public static final int L = F.size() + 5;
 	
 	// rows + cols
 	public static int[][] M = new int[L][F.size()];
@@ -43,6 +43,15 @@ public class Main {
 		
 		Runtime r = Runtime.getRuntime();
 		r.exec("/h/d1/p/dt08mr7/gitHub/personal_repo/execs/gaussbin matrix.out gauss.out");
+		
+		/*
+		 * Read solution row.
+		 * Calculate X and Y from matrix row (exponent), factor base and R values.
+		 * -- add saving of R values.
+		 * Send X and Y to Factorization.
+		 * Repeat if no solution.
+		 * 
+		 */
 		
 //		BigInteger N = BigInteger.valueOf(77);
 //
