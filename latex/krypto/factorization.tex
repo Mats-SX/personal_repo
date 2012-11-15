@@ -44,13 +44,17 @@ The program is written in Java and is made up by four classes:
 The program uses the \texttt{GaussBin} program provided for conducting the gaussian elimination step, so we make use of three text files: \texttt{primes.file},  \texttt{matrix.out} and \texttt{gauss.out}. The first contains the first $\sim 2000$ primes from which we read the $|F|$ primes used for our factor base, the second is our matrix written to the format specified as input for \texttt{GaussBin} and the third is the output from \texttt{GaussBin}, used as input for our final step in the algorithm.
 
 \subsection*{Solution}
-Our program solves the factoring of $N = p\cdot q$ in less than $780$ seconds $= 13$ minutes, as $p = $ and $q = $ on a powerful PC\footnote{Intel i5-2500K, 16GB RAM, Windows 7}, and does not finish in feasible time on a school computer\footnote{AMD Athlon II X2 B26 3.2GHz, 3.45GB RAM, Linux Mint}.
+Our program solves the factoring of $N = p\cdot q$ in less than $780$ seconds $= 13$ minutes, as $p = 301862728273$ and $q = 353025492481$ on a powerful PC\footnote{Intel i5-2500K 3.3GHz, 16GB RAM, Windows 7}, and does not finish in feasible time on a school computer\footnote{AMD Athlon II X2 B26 3.2GHz, 3.45GB RAM, Linux Mint}.
 
 \subsection*{Extra metrics}
 For extra goodies we provide a few extra metrics that we collected in the process of trying to optimize our program. They will make sense only in the context of the program itself.
 
 \begin{verbatim}
-text
+# calls to the method factors: 6963491
+time spent in it: 661.306 s
+# calls to the method squareRoots: 13926982
+time spent in it: 125.67 s
+# solutions tried until ''good'' x and y found: 12
 \end{verbatim}
 
 \vspace*{2cm}

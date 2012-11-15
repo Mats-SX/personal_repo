@@ -59,13 +59,11 @@ public class Main {
 		System.out.println("Solving this took " + (System.currentTimeMillis() - start) / 1000.0 + " seconds.");
 		
 		System.out.println("\nMetrics:");
-		System.out.println("factors: " + f.factorsCalls);
-		System.out.println("time spent: " + f.millisSpentOnFactors / 1000.0);
-		System.out.println("matrix: " + m.createMatrixCalls);
-		System.out.println("rowexists: " + m.rowExistsCalls);
-		System.out.println("sqroots: " + squareRootCalls);
-		System.out.println("time spent: " + millisSpentOnRoots / 1000.0);
-		System.out.println("rows: " + xandy.currentRow);
+		System.out.println("# calls to the method factors: " + f.factorsCalls);
+		System.out.println("time spent in it: " + f.millisSpentOnFactors / 1000.0);
+		System.out.println("# calls to the method squareRoots: " + squareRootCalls);
+		System.out.println("time spent in it: " + millisSpentOnRoots / 1000.0);
+		System.out.println("# solutions tried until ''good'' x and y found: " + xandy.currentRow);
 	}
 	
 

@@ -10,7 +10,7 @@ public class Matrix {
 	private final int rows;
 	private final int cols;
 	private final BigInteger[] randoms;
-	int createMatrixCalls, rowExistsCalls, squareRootCalls;
+	int squareRootCalls;
 	long millisSpentOnRoots;
 
 	public Matrix() {
@@ -25,32 +25,11 @@ public class Matrix {
 
 	public int[][] createMatrix(Factorization f, BigInteger N) {
 		long start = System.currentTimeMillis();
-		createMatrixCalls++;
 		int[][] tempM = new int[rows + 1][cols];
 		int l = 1;
 		int[] exponents;
 		BigInteger r;
-//		BigInteger r = Main.squareRoot(N.multiply(BigInteger.ONE)).add(BigInteger.ONE);
-//		int[] exponents = f.factors(r.multiply(r).mod(N));
-//		if (exponents != null) {
-//			int[] row = exponents;
-//			if (!rowExistsBefore(l, row, tempM)) {
-//				tempM[l] = row;
-//				randoms[l - 1] = r;
-//				l++;
-//			}
-//		}
-//
-//		r = Main.squareRoot(N.multiply(BigInteger.ONE)).add(BigInteger.valueOf(2));
-//		exponents = f.factors(r.multiply(r).mod(N));
-//		if (exponents != null) {
-//			int[] row = exponents;
-//			if (!rowExistsBefore(l, row, tempM)) {
-//				tempM[l] = row;
-//				randoms[l - 1] = r;
-//				l++;
-//			}
-//		}
+		
 		int k = 2;
 		int j = 1;
 		while (l < rows + 1) {
@@ -81,7 +60,6 @@ public class Matrix {
 	}
 	
 	private boolean rowExistsBefore(int l, int[] row, int[][] matrix) {
-		rowExistsCalls++;
 		int[] mRow;
 		for (int i = 0; i < l; i++) {
 			mRow = matrix[i];
