@@ -26,4 +26,35 @@ $$
 This is of course not really feasible.
 
 \section*{Exercise 2}
+In this task we implement a simplified version of Quadratic Sieve, following the guidelines in the project description. The number $N$ that we will try to factor is given as
+
+$$
+N = 106 565 238 310 234 107 615 313 > 10^{24}
+$$
+
+\subsection*{Program}
+The program is written in Java and is made up by four classes:
+\begin{itemize}
+\item \texttt{Main.java} which contains our main method and interacts with the user.
+\item \texttt{Factorization.java} which includes the basic methods for doing actual factoring of numbers.
+\item \texttt{Matrix.java} which is a wrapper for a primitive Java matrix and contains functionality for creating one that suits our needs.
+\item \texttt{XandY.java} which computes the values $x$ and $y$ such that $x^2 = y^2$~mod~$N$ after the gaussian elimination step has been completed.
+\end{itemize}
+
+The program uses the \texttt{GaussBin} program provided for conducting the gaussian elimination step, so we make use of three text files: \texttt{primes.file},  \texttt{matrix.out} and \texttt{gauss.out}. The first contains the first $\sim 2000$ primes from which we read the $|F|$ primes used for our factor base, the second is our matrix written to the format specified as input for \texttt{GaussBin} and the third is the output from \texttt{GaussBin}, used as input for our final step in the algorithm.
+
+\subsection*{Solution}
+Our program solves the factoring of $N = p\cdot q$ in less than $780$ seconds $= 13$ minutes, as $p = $ and $q = $ on a powerful PC\footnote{Intel i5-2500K, 16GB RAM, Windows 7}, and does not finish in feasible time on a school computer\footnote{AMD Athlon II X2 B26 3.2GHz, 3.45GB RAM, Linux Mint}.
+
+\subsection*{Extra metrics}
+For extra goodies we provide a few extra metrics that we collected in the process of trying to optimize our program. They will make sense only in the context of the program itself.
+
+\begin{verbatim}
+text
+\end{verbatim}
+
+\vspace*{2cm}
+\paragraph{Time spent on the project: 11 hours per person = 22 hours total}
+
+
 \end{document}

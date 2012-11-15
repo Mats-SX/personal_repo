@@ -1,8 +1,12 @@
 package main;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.math.BigInteger;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Main {
 	
@@ -27,7 +31,7 @@ public class Main {
 //		for (int i = 0; i < 100000; i++) {
 //			big.multiply(small);
 //		}
-		F = new Parser().parsePrimes(PRIME_FILENAME, L - EXTRA_SOLUTIONS);
+		F = parsePrimes(PRIME_FILENAME, L - EXTRA_SOLUTIONS);
 		Factorization f = new Factorization();
 		
 		// our number... phew
@@ -77,6 +81,25 @@ public class Main {
 		}
 		millisSpentOnRoots += (System.currentTimeMillis() - start);
 		return left; 
+	}
+	
+	/**
+	 * Scans the file filename for primes. If it doesn't contain 
+	 * nbrOfPrimes primes, it's your fault.
+	 * @param filename
+	 * @param nbrOfPrimes
+	 */
+	public static List<BigInteger> parsePrimes(String filename, int nbrOfPrimes) {
+		List<BigInteger> list = new ArrayList<BigInteger>(nbrOfPrimes);
+		try {
+			Scanner scan = new Scanner(new File(filename));
+			for (int i = 0; i < nbrOfPrimes; i++) {
+				list.add(BigInteger.valueOf(scan.nextInt()));
+			}
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		return list;
 	}
 	
 }
