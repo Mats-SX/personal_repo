@@ -1,8 +1,12 @@
 package main;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.math.BigInteger;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Main {
 	
@@ -25,14 +29,18 @@ public class Main {
 	
 	public static void main(String[] args) throws IOException {
 		start = System.currentTimeMillis();
-		F = new Parser().parsePrimes(PRIME_FILENAME, L - EXTRA_SOLUTIONS);
+		F = parsePrimes(PRIME_FILENAME, L - EXTRA_SOLUTIONS);
 		Factorization f = new Factorization();
 		
 		// our number... phew
-		BigInteger N = BigInteger.valueOf(10656523831023410L);
-		N = N.multiply(BigInteger.valueOf(10000000));
-		N = N.add(BigInteger.valueOf(7615313));
-//		BigInteger N = BigInteger.valueOf(Long.valueOf(args[0]));
+		BigInteger N;
+		if (args.length == 0) {
+			N = BigInteger.valueOf(10656523831023410L);
+			N = N.multiply(BigInteger.valueOf(10000000));
+			N = N.add(BigInteger.valueOf(7615313));
+		} else {
+			N = BigInteger.valueOf(Long.valueOf(args[0]));
+		}
 		
 		Matrix m = new Matrix();
 		System.out.println("Mid time before creating matrix " + (System.currentTimeMillis() - start) / 1000.0 + " seconds.");
@@ -76,6 +84,25 @@ public class Main {
 		}
 		millisSpentOnRoots += (System.currentTimeMillis() - start);
 		return left; 
+	}
+	
+	/**
+	 * Scans the file filename for primes. If it doesn't contain 
+	 * nbrOfPrimes primes, it's your fault.
+	 * @param filename
+	 * @param nbrOfPrimes
+	 */
+	public static List<BigInteger> parsePrimes(String filename, int nbrOfPrimes) {
+		List<BigInteger> list = new ArrayList<BigInteger>(nbrOfPrimes);
+		try {
+			Scanner scan = new Scanner(new File(filename));
+			for (int i = 0; i < nbrOfPrimes; i++) {
+				list.add(BigInteger.valueOf(scan.nextInt()));
+			}
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		return list;
 	}
 	
 }
