@@ -9,7 +9,8 @@ public class Main {
 	public static final String MATRIX_FILENAME = "matrix.out";
 	public static final String GAUSS_OUT_FILE = "gauss.out";
 	public static final String PRIME_FILENAME = "primes.file";
-	public static final String GAUSS_ELIM = "../../execs/gaussbin";
+//	public static final String GAUSS_ELIM = "../../execs/gaussbin";
+	public static final String WIN_GAUSS = "GaussBin.exe";
 	
 	public static final int L = 1024;
 	public static final int EXTRA_SOLUTIONS = 10;
@@ -20,28 +21,26 @@ public class Main {
 	private static int squareRootCalls;
 	private static long millisSpentOnRoots;
 	
+	static long start;
+	
 	public static void main(String[] args) throws IOException {
-		long start = System.currentTimeMillis();
-//		BigInteger big = BigInteger.valueOf(152467894521L);
-//		BigInteger small = BigInteger.valueOf(6598724231L);
-//		for (int i = 0; i < 100000; i++) {
-//			big.multiply(small);
-//		}
+		start = System.currentTimeMillis();
 		F = new Parser().parsePrimes(PRIME_FILENAME, L - EXTRA_SOLUTIONS);
 		Factorization f = new Factorization();
 		
 		// our number... phew
-//		BigInteger N = BigInteger.valueOf(10656523831023410L);
-//		N = N.multiply(BigInteger.valueOf(10000000));
-//		N = N.add(BigInteger.valueOf(7615313));
-		BigInteger N = BigInteger.valueOf(Long.valueOf(args[0]));
+		BigInteger N = BigInteger.valueOf(10656523831023410L);
+		N = N.multiply(BigInteger.valueOf(10000000));
+		N = N.add(BigInteger.valueOf(7615313));
+//		BigInteger N = BigInteger.valueOf(Long.valueOf(args[0]));
 		
 		Matrix m = new Matrix();
+		System.out.println("Mid time before creating matrix " + (System.currentTimeMillis() - start) / 1000.0 + " seconds.");
 		M = m.createMatrix(f, N);
 		m.printToFile("matrix.out");
 		
 		Runtime r = Runtime.getRuntime();
-		r.exec(GAUSS_ELIM + " " + MATRIX_FILENAME + " " + GAUSS_OUT_FILE);
+		r.exec(WIN_GAUSS + " " + MATRIX_FILENAME + " " + GAUSS_OUT_FILE);
 		
 		XandY xandy = new XandY(GAUSS_OUT_FILE, m.getRandoms());
 		

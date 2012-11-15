@@ -24,6 +24,7 @@ public class Matrix {
 	}
 
 	public int[][] createMatrix(Factorization f, BigInteger N) {
+		long start = System.currentTimeMillis();
 		createMatrixCalls++;
 		int[][] tempM = new int[rows + 1][cols];
 		int l = 1;
@@ -71,6 +72,7 @@ public class Matrix {
 				j++;
 			}
 		}
+		System.out.println("Mid time before new matrix " + (System.currentTimeMillis() - start) / 1000.0 + " seconds.");
 		int[][] M = new int[rows][cols];
 		for (int i = 0; i < rows; i++) {
 			M[i] = tempM[i+1];

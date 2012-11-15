@@ -1,7 +1,5 @@
 package main;
 import java.math.BigInteger;
-import java.util.HashSet;
-import java.util.Set;
 
 
 public class Factorization {
@@ -22,12 +20,15 @@ public class Factorization {
 		// We only need to consider factors from the factor base
 		// which are smaller than the root of r^2 mod N
 		BigInteger factor = Main.F.get(i);
+		while (r2modN.compareTo(factor) < 0) {
+			i--;
+			factor = Main.F.get(i);
+		}
 		BigInteger root = Main.squareRoot(r2modN);
 		while (root.compareTo(factor) < 0) {
 			i--;
 			factor = Main.F.get(i);
 		}
-		
 		while (i > -1) {
 			factor = Main.F.get(i);
 			if (r2modN.mod(factor).equals(BigInteger.ZERO)) {
